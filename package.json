@@ -1,0 +1,8 @@
+{
+  "name": "g6-streaming-entrega03-subgrupo03-codigo",
+  "private": true,
+  "scripts": {
+    "test": "npm run build:test && node --test tests/chat.test.js",
+    "build:test": "npx --yes -p typescript tsc -p tsconfig.test.json"
+  }
+}
