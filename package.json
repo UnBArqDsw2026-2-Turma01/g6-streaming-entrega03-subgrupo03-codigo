@@ -1,0 +1,22 @@
+{
+  "name": "g6-streaming-entrega03-subgrupo03-codigo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chain of Responsibility (GoF) aplicado à autenticação da plataforma de streaming — Entrega 03, SubEquipe_03, Grupo 06.",
+  "author": "Hugo Freitas Silva",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "demo": "tsx src/autenticacao/demo.ts",
+    "test": "tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}
