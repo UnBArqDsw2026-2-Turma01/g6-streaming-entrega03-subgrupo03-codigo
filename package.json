@@ -12,7 +12,11 @@
     "benchmark": "tsx src/benchmark.ts",
     "interactive": "tsx src/interactive.ts",
     "web": "tsx src/webServer.ts",
-    "test": "tsx --test src/**/*.test.ts"
+    "test": "tsx --test src/**/*.test.ts tests/*.test.ts",
+    "demo:autenticacao": "tsx src/autenticacao/demo.ts",
+    "test:autenticacao": "tsx --test tests/*.test.ts",
+    "typecheck:autenticacao": "tsc --noEmit -p tsconfig.autenticacao.json",
+    "check:autenticacao": "npm run typecheck:autenticacao && npm run test:autenticacao"
   },
   "keywords": [
     "design-patterns",
@@ -25,7 +29,10 @@
     "dmca",
     "twitch",
     "youtube",
-    "kick"
+    "kick",
+    "chain-of-responsibility",
+    "authentication",
+    "totp"
   ],
   "author": "SubEquipe 03 - Desenho de Software (UnB Gama)",
   "license": "MIT",
@@ -37,5 +44,8 @@
     "@types/ws": "^8.5.14",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
