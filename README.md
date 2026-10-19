@@ -32,7 +32,9 @@ Projeto desenvolvido para a **Entrega 3 da disciplina Desenho de Software (UnB G
 
 ### Instalação
 ```bash
-cd docs/Base/Relatórios/1.1.3.SubEquipe_03/codigo
+git clone https://github.com/UnBArqDsw2026-2-Turma01/g6-streaming-entrega03-subgrupo03-codigo.git
+cd g6-streaming-entrega03-subgrupo03-codigo
+git checkout feat/moderacao-observerBehavioralGoF
 npm install
 ```
 
@@ -40,7 +42,9 @@ npm install
 
 | Comando | Descrição |
 | :--- | :--- |
-| `npm run demo` | Executa a demonstração interativa de streaming e moderação reativa (ideal para o vídeo) |
+| `npm run demo` | Executa a demonstração automatizada de streaming e moderação reativa |
+| `npm run interactive` | Abre o console REPL interativo de simulação de streaming e moderação |
+| `npm run web` | Inicia o servidor Web com dashboard ModView em tempo real (http://localhost:3333) |
 | `npm run benchmark` | Executa o teste de carga comparativo com 2.000 espectadores (Iniciativa Extra) |
 | `npm test` | Executa a suíte de 13 testes unitários automatizados (Node Test Runner) |
 | `npm run build` | Compila o projeto TypeScript para a pasta `dist/` |
