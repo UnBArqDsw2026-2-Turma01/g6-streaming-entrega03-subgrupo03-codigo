@@ -1,8 +1,41 @@
 {
-  "name": "g6-streaming-entrega03-subgrupo03-codigo",
-  "private": true,
+  "name": "ugc-streaming-gof-observer-subequipe-03",
+  "version": "1.0.0",
+  "description": "StreamSentry: Implementação Real do Padrão GoF Observer com Moderação Reativa (AutoMod, Gore, Nudez, DMCA) e Concorrência",
+  "main": "dist/server.js",
+  "type": "module",
   "scripts": {
-    "test": "npm run build:test && node --test tests/chat.test.js",
-    "build:test": "npx --yes -p typescript tsc -p tsconfig.test.json"
+    "build": "tsc",
+    "start": "tsx src/server.ts",
+    "server": "tsx src/server.ts",
+    "demo": "tsx src/demo.ts",
+    "benchmark": "tsx src/benchmark.ts",
+    "interactive": "tsx src/interactive.ts",
+    "web": "tsx src/webServer.ts",
+    "test": "tsx --test src/**/*.test.ts"
+  },
+  "keywords": [
+    "design-patterns",
+    "gof",
+    "observer",
+    "strategy",
+    "moderation",
+    "automod",
+    "nsfw-detection",
+    "dmca",
+    "twitch",
+    "youtube",
+    "kick"
+  ],
+  "author": "SubEquipe 03 - Desenho de Software (UnB Gama)",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/ws": "^8.5.14",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
   }
 }
