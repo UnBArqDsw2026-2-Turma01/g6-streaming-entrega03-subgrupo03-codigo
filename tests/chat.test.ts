@@ -1,11 +1,11 @@
-const assert = require("node:assert/strict");
-const test = require("node:test");
+import assert from "node:assert/strict";
+import test from "node:test";
 
-const { ChatAuditService } = require("../.test-build/chat/ChatAuditService");
-const { ChatMessage } = require("../.test-build/chat/ChatMessage");
-const { ChatRoom } = require("../.test-build/chat/ChatRoom");
-const { QuarantineQueue } = require("../.test-build/chat/QuarantineQueue");
-const { ModerationDecision } = require("../.test-build/moderation/ModerationDecision");
+import { ChatAuditService } from "../src/chat/ChatAuditService";
+import { ChatMessage } from "../src/chat/ChatMessage";
+import { ChatRoom } from "../src/chat/ChatRoom";
+import { QuarantineQueue } from "../src/chat/QuarantineQueue";
+import { ModerationDecision } from "../src/moderation/ModerationDecision";
 
 function createRoom(decision, reason = "teste") {
   const audit = new ChatAuditService();

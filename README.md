@@ -34,7 +34,6 @@ Projeto desenvolvido para a **Entrega 3 da disciplina Desenho de Software (UnB G
 ```bash
 git clone https://github.com/UnBArqDsw2026-2-Turma01/g6-streaming-entrega03-subgrupo03-codigo.git
 cd g6-streaming-entrega03-subgrupo03-codigo
-git checkout feat/moderacao-observerBehavioralGoF
 npm install
 ```
 
@@ -46,7 +45,8 @@ npm install
 | `npm run interactive` | Abre o console REPL interativo de simulação de streaming e moderação |
 | `npm run web` | Inicia o servidor Web com dashboard ModView em tempo real (http://localhost:3333) |
 | `npm run benchmark` | Executa o teste de carga comparativo com 2.000 espectadores (Iniciativa Extra) |
-| `npm test` | Executa as suítes do Observer (13 testes) e da autenticação (56 testes) com o Node Test Runner |
+| `npm test` | Executa as suítes do Observer (13 testes), da autenticação (56 testes) e do chat (5 testes) com o Node Test Runner |
+| `npm run test:chat` | Testes do Observer da sala de chat |
 | `npm run demo:autenticacao` | Demonstração do Chain of Responsibility no login e no step-up |
 | `npm run check:autenticacao` | Verificação de tipos e testes do Chain of Responsibility |
 | `npm run build` | Compila o projeto TypeScript para a pasta `dist/` |
@@ -96,7 +96,6 @@ Pré-requisitos: Node 20 ou superior e npm. O TypeScript roda pelo `tsx`, sem et
 ```bash
 git clone https://github.com/UnBArqDsw2026-2-Turma01/g6-streaming-entrega03-subgrupo03-codigo.git
 cd g6-streaming-entrega03-subgrupo03-codigo
-git checkout feat/autenticacao-chainOfResponsibilityBehavioralGoF
 npm ci                        # instala as dependências travadas no package-lock
 npm run check:autenticacao    # verificação de tipos (tsc) e os 56 testes (node:test)
 npm run demo:autenticacao     # demonstração no terminal
@@ -129,4 +128,23 @@ As classes de `src/autenticacao/dominio/` são recortes do diagrama de autentica
 
 Relatório da subequipe: [1.1.3. SubEquipe_03](https://unbarqdsw2026-2-turma01.github.io/2026.2-T01-_G6_ProjetoStreamingVideo_Entrega_03/#/Base/Relatórios/1.1.3.SubEquipe_03/README).
 
-`npm test` executa as duas suítes juntas: Observer (`src/**/*.test.ts`) e autenticação (`tests/*.test.ts`).
+`npm test` executa as três suítes juntas: Observer da moderação (`src/**/*.test.ts`), autenticação e chat (`tests/*.test.ts`).
+
+---
+
+## 💬 Observer — Chat em Tempo Real (Philipe Amâncio Reis Caetano)
+
+Sala de chat com o padrão **Observer**, integrada à moderação: a mensagem só é entregue aos observadores depois de passar pelo `AutoModPipeline`.
+
+| Participante | Arquivo | O que faz |
+| --- | --- | --- |
+| Subject | `src/chat/ChatRoom.ts` | `subscribe`, `unsubscribe` e `publish`; notifica os observadores só quando a moderação aprova |
+| Observer | `src/chat/ChatObserver.ts` | Contrato `update(message)` |
+| ConcreteObserver | `src/chat/ChatDeliveryService.ts` | Entrega as mensagens aprovadas, exibindo-as no console |
+| Moderação | `src/moderation/` | `AutoModPipeline`, `ModerationDecision` (aprovada, quarentena, rejeitada) e `ModerationVerdict` |
+| Apoio | `src/chat/QuarantineQueue.ts`, `src/chat/ChatAuditService.ts`, `src/chat/ChatSetup.ts` | Fila de quarentena, auditoria de cada decisão e montagem das dependências |
+
+```bash
+npm run test:chat   # 5 testes: entrega, quarentena, rejeição, inscrição e cópias defensivas
+```
+
