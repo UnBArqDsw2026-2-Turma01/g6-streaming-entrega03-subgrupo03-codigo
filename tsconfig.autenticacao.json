@@ -19,6 +19,9 @@
   },
   "include": [
     "src/autenticacao",
-    "tests"
+    "tests/cadeias.test.ts",
+    "tests/dominio.test.ts",
+    "tests/handlers.test.ts",
+    "tests/helpers.ts"
   ]
 }

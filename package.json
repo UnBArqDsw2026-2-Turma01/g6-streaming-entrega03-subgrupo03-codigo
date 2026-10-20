@@ -14,9 +14,10 @@
     "web": "tsx src/webServer.ts",
     "test": "tsx --test src/**/*.test.ts tests/*.test.ts",
     "demo:autenticacao": "tsx src/autenticacao/demo.ts",
-    "test:autenticacao": "tsx --test tests/*.test.ts",
+    "test:autenticacao": "tsx --test tests/cadeias.test.ts tests/dominio.test.ts tests/handlers.test.ts",
     "typecheck:autenticacao": "tsc --noEmit -p tsconfig.autenticacao.json",
-    "check:autenticacao": "npm run typecheck:autenticacao && npm run test:autenticacao"
+    "check:autenticacao": "npm run typecheck:autenticacao && npm run test:autenticacao",
+    "test:chat": "tsx --test tests/chat.test.ts"
   },
   "keywords": [
     "design-patterns",
